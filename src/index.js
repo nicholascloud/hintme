@@ -1,3 +1,4 @@
+#!/Users/nicholascloud/.nvm/v0.10.33/bin/node
 'use strict';
 require('colors');
 var fs = require('fs');
@@ -16,7 +17,7 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-var OUTPUT_FILE = path.resolve(__dirname, args[0]);
+var OUTPUT_FILE = path.relative(__dirname, args[0]);
 var LIVE_OPTS = util.contains(args, '--live');
 
 Q().then(function () {
@@ -62,7 +63,7 @@ Q().then(function () {
       }
       var d = Q.defer();
       rl.question(prompt, function (value) {
-        value = value.trim() || opt.defaultValue || '';
+        value = (value.trim() || opt.defaultValue || '');
         choices[opt.name] = util.coerce(value);
         d.resolve();
       });
