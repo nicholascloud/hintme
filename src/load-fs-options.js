@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 var Q = require('q');
 
-var OPTIONS_FILE = path.join(__dirname, 'options.json');
+var OPTIONS_FILE = path.join(__dirname, '..', 'res', 'options.json');
 
 module.exports = function () {
   return Q().then(function () {

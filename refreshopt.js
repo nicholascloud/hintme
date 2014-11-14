@@ -3,9 +3,9 @@ require('colors');
 var path = require('path');
 var fs = require('fs');
 var Q = require('q');
-var loadWebOptions = require('./load-web-options');
+var loadWebOptions = require('./src/load-web-options');
 
-var OPTIONS_FILE = path.join(__dirname, 'options.json');
+var OPTIONS_FILE = path.join(__dirname, 'res', 'options.json');
 
 loadWebOptions().then(function (options) {
   console.log('writing options file:', OPTIONS_FILE);
