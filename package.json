@@ -1,0 +1,20 @@
+{
+  "name": "hintme",
+  "version": "1.0.0",
+  "description": "generate a .jshintrc file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jshint"
+  ],
+  "author": "Nicholas Cloud",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "jsdom": "^1.2.1",
+    "q": "^1.1.1",
+    "request": "^2.48.0"
+  }
+}

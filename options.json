@@ -1,0 +1,450 @@
+[
+  {
+    "name": "bitwise",
+    "desc": "This option prohibits the use of bitwise operators such as ^ (XOR), | (OR)\nand others. Bitwise operators are very rare in JavaScript programs and quite\noften & is simply a mistyped &&.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "camelcase",
+    "desc": "This option allows you to force all variable names to use either camelCase\nstyle or UPPER_CASE with underscores.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "curly",
+    "desc": "This option requires you to always put curly braces around blocks in loops and\nconditionals. JavaScript allows you to omit curly braces when the block consists\nof only one statement, for example:\n\nwhile (day)\n  shuffle();\n\nHowever, in some circumstances, it can lead to bugs (you'd think that sleep()\nis a part of the loop while in reality it is not):\n\nwhile (day)\n  shuffle();\n  sleep();",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "eqeqeq",
+    "desc": "This options prohibits the use of == and != in favor of === and !==. The\nformer try to coerce values before comparing them which can lead to some\nunexpected results. The latter don't do any coercion so they are generally\nsafer. If you would like to learn more about type coercion in JavaScript,\nwe recommend Truth, Equality and JavaScript\nby Angus Croll.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "es3",
+    "desc": "This option tells JSHint that your code needs to adhere to ECMAScript 3\nspecification. Use this option if you need your program to be executable\nin older browsers—such as Internet Explorer 6/7/8/9—and other legacy\nJavaScript environments.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "forin",
+    "desc": "This option requires all for in loops to filter object's items. The for in\nstatement allows for looping through the names of all of the properties of an\nobject including those inherited throught the prototype chain. This behavior can\nlead to unexpected items in your object so it is generally safer to always\nfilter inherited properties out as shown in the example:\n\nfor (key in obj) {\n  if (obj.hasOwnProperty(key)) {\n    // We are sure that obj[key] belongs to the object and was not inherited.\n  }\n}\n\nFor more in-depth understanding of for in loops in JavaScript, read\nExploring JavaScript for-in loops\nby Angus Croll.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "freeze",
+    "desc": "This options prohibits overwriting prototypes of native objects such as\nArray, Date and so on.\n\n/* jshint freeze:true */\nArray.prototype.count = function (value) { return 4; };\n// -> Warning: Extending prototype of native object: 'Array'.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "immed",
+    "desc": "This option prohibits the use of immediate function invocations without wrapping\nthem in parentheses. Wrapping parentheses assists readers of your code in\nunderstanding that the expression is the result of a function, and not the\nfunction itself.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "indent",
+    "desc": "This option sets a specific tab width for your code.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "latedef",
+    "desc": "This option prohibits the use of a variable before it was defined. JavaScript\nhas function scope only and, in addition to that, all variables are always\nmoved—or hoisted— to the top of the function. This behavior can lead to some\nvery nasty bugs and that's why it is safer to always use variable only after\nthey have been explicitly defined.\n\nSetting this option to \"nofunc\" will allow function declarations to be ignored.\n\nFor more in-depth understanding of scoping and hoisting in JavaScript, read\nJavaScript Scoping and Hoisting\nby Ben Cherry.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "newcap",
+    "desc": "This option requires you to capitalize names of constructor functions.\nCapitalizing functions that are intended to be used with new operator is just\na convention that helps programmers to visually distinguish constructor functions\nfrom other types of functions to help spot mistakes when using this.\n\nNot doing so won't break your code in any browsers or environments but it will\nbe a bit harder to figure out—by reading the code—if the function was supposed\nto be used with or without new. And this is important because when the function\nthat was intended to be used with new is used without it, this will point to\nthe global object instead of a new object.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "noarg",
+    "desc": "This option prohibits the use of arguments.caller and arguments.callee.\nBoth .caller and .callee make quite a few optimizations impossible so they\nwere deprecated in future versions of JavaScript. In fact, ECMAScript 5 forbids\nthe use of arguments.callee in strict mode.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "noempty",
+    "desc": "This option warns when you have an empty block in your code. JSLint was\noriginally warning for all empty blocks and we simply made it optional.\nThere were no studies reporting that empty blocks in JavaScript break your code\nin any way.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "nonbsp",
+    "desc": "This option warns about \"non-breaking whitespace\" characters. These characters\ncan be entered with option-space on Mac computers and have a potential of\nbreaking non-UTF8 web pages.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "nonew",
+    "desc": "This option prohibits the use of constructor functions for side-effects. Some\npeople like to call constructor functions without assigning its result to any\nvariable:\n\nnew MyConstructor();\n\nThere is no advantage in this approach over simply calling MyConstructor since\nthe object that the operator new creates isn't used anywhere so you should\ngenerally avoid constructors like this one.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "plusplus",
+    "desc": "This option prohibits the use of unary increment and decrement operators.\nSome people think that ++ and -- reduces the quality of their coding styles\nand there are programming languages—such as Python—that go completely without\nthese operators.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "quotmark",
+    "desc": "This option enforces the consistency of quotation marks used throughout your\ncode. It accepts three values: true if you don't want to enforce one\nparticular style but want some consistency, \"single\" if you want to allow only\nsingle quotes and \"double\" if you want to allow only double quotes.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "undef",
+    "desc": "This option prohibits the use of explicitly undeclared variables. This option\nis very useful for spotting leaking and mistyped variables.\n\n/*jshint undef:true */\n\nfunction test() {\n  var myVar = 'Hello, World';\n  console.log(myvar); // Oops, typoed here. JSHint with undef will complain\n}\n\nIf your variable is defined in another file, you can use /*global ... */\ndirective to tell JSHint about it.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "unused",
+    "desc": "This option warns when you define and never use your variables. It is very\nuseful for general code cleanup, especially when used in addition to undef.\n\n/*jshint unused:true */\n\nfunction test(a, b) {\n  var c, d = 2;\n\n  return a + d;\n}\n\ntest(1, 2);\n\n// Line 3: 'b' was defined but never used.\n// Line 4: 'c' was defined but never used.\n\nIn addition to that, this option will warn you about unused global variables\ndeclared via /*global ... */ directive.\n\nThis can be set to vars to only check for variables, not function parameters,\nor strict to check all variables and parameters.  The default (true) behavior\nis to allow unused parameters that are followed by a used parameter.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "strict",
+    "desc": "This option requires all functions to run in ECMAScript 5's strict mode.\nStrict mode is a way\nto opt in to a restricted variant of JavaScript. Strict mode eliminates some\nJavaScript pitfalls that didn't cause errors by changing them to produce errors.\nIt also fixes mistakes that made it difficult for the JavaScript engines to\nperform certain optimizations.\n\nNote: This option enables strict mode for function scope only. It prohibits\nthe global scoped strict mode because it might break third-party widgets on your\npage. If you really want to use global strict mode, see the globalstrict\noption.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "maxparams",
+    "desc": "This option lets you set the max number of formal parameters allowed per\nfunction:\n\n/*jshint maxparams:3 */\n\nfunction login(request, onSuccess) {\n  // ...\n}\n\n// JSHint: Too many parameters per function (4).\nfunction logout(request, isManual, whereAmI, onSuccess) {\n  // ...\n}",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "maxdepth",
+    "desc": "This option lets you control how nested do you want your blocks to be:\n\n/*jshint maxdepth:2 */\n\nfunction main(meaning) {\n  var day = true;\n\n  if (meaning === 42) {\n    while (day) {\n      shuffle();\n\n      if (tired) { // JSHint: Blocks are nested too deeply (3).\n          sleep();\n      }\n    }\n  }\n}",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "maxstatements",
+    "desc": "This option lets you set the max number of statements allowed per function:\n\n/*jshint maxstatements:4 */\n\nfunction main() {\n  var i = 0;\n  var j = 0;\n\n  // Function declarations count as one statement. Their bodies\n  // don't get taken into account for the outer function.\n  function inner() {\n    var i2 = 1;\n    var j2 = 1;\n\n    return i2 + j2;\n  }\n\n  j = i + j;\n  return j; // JSHint: Too many statements per function. (5)\n}",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "maxcomplexity",
+    "desc": "This option lets you control cyclomatic complexity throughout your code.\nCyclomatic complexity measures the number of linearly independent paths through\na program's source code. Read more about\ncyclomatic complexity on Wikipedia.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "maxlen",
+    "desc": "This option lets you set the maximum length of a line.",
+    "restrict": [],
+    "type": "enforcing",
+    "defaultValue": "true"
+  },
+  {
+    "name": "asi",
+    "desc": "This option suppresses warnings about missing semicolons. There is a lot of\nFUD about semicolon spread by quite a few people in the community. The\ncommon myths are that semicolons are required all the time (they are not) and\nthat they are unreliable. JavaScript has rules about semicolons which are\nfollowed by all browsers so it is up to you to decide whether you should or\nshould not use semicolons in your code.\n\nFor more information about semicolons in JavaScript read\nAn Open Letter to JavaScript Leaders Regarding Semicolons\nby Isaac Schlueter and JavaScript Semicolon Insertion.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "boss",
+    "desc": "This option suppresses warnings about the use of assignments in cases where\ncomparisons are expected. More often than not, code like if (a = 10) {} is a\ntypo. However, it can be useful in cases like this one:\n\nfor (var i = 0, person; person = people[i]; i++) {}\n\nYou can silence this error on a per-use basis by surrounding the assignment\nwith parenthesis, such as:\n\nfor (var i = 0, person; (person = people[i]); i++) {}",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "debug",
+    "desc": "This option suppresses warnings about the debugger statements in your code.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "eqnull",
+    "desc": "This option suppresses warnings about == null comparisons. Such comparisons\nare often useful when you want to check if a variable is null or undefined.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "esnext",
+    "desc": "This option tells JSHint that your code uses ECMAScript 6 specific syntax.\nNote that these features are not finalized yet and not all browsers implement\nthem.\n\nMore info:\n\nDraft Specification for ES.next (ECMA-262 Ed. 6)",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "evil",
+    "desc": "This option suppresses warnings about the use of eval. The use of eval is\ndiscouraged because it can make your code vulnerable to various injection\nattacks and it makes it hard for JavaScript interpreter to do certain\noptimizations.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "expr",
+    "desc": "This option suppresses warnings about the use of expressions where normally you\nwould expect to see assignments or function calls. Most of the time, such code\nis a typo. However, it is not forbidden by the spec and that's why this warning\nis optional.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "funcscope",
+    "desc": "This option suppresses warnings about declaring variables inside of control\nstructures while accessing them later from the outside. Even though JavaScript\nhas only two real scopes—global and function—such practice leads to confusion\namong people new to the language and hard-to-debug bugs. This is why, by\ndefault, JSHint warns about variables that are used outside of their intended\nscope.\n\nfunction test() {\n  if (true) {\n    var x = 0;\n  }\n\n  x += 1; // Default: 'x' used out of scope.\n            // No warning when funcscope:true\n}",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "globalstrict",
+    "desc": "This option suppresses warnings about the use of global strict mode. Global\nstrict mode can break third-party widgets so it is not recommended.\n\nFor more info about strict mode see the strict option.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "iterator",
+    "desc": "This option suppresses warnings about the __iterator__ property. This property\nis not supported by all browsers so use it carefully.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "lastsemic",
+    "desc": "This option suppresses warnings about missing semicolons, but only when the\nsemicolon is omitted for the last statement in a one-line block:\n\nvar name = (function() { return 'Anton' }());\n\nThis is a very niche use case that is useful only when you use automatic\nJavaScript code generators.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "laxbreak",
+    "desc": "This option suppresses most of the warnings about possibly unsafe line breakings\nin your code. It doesn't suppress warnings about comma-first coding style. To\nsuppress those you have to use laxcomma (see below).",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "laxcomma",
+    "desc": "This option suppresses warnings about comma-first coding style:\n\nvar obj = {\n    name: 'Anton'\n  , handle: 'valueof'\n  , role: 'SW Engineer'\n};",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "loopfunc",
+    "desc": "This option suppresses warnings about functions inside of loops. Defining\nfunctions inside of loops can lead to bugs such as this one:\n\nvar nums = [];\n\nfor (var i = 0; i < 10; i++) {\n  nums[i] = function (j) {\n    return i + j;\n  };\n}\n\nnums[0](2); // Prints 12 instead of 2\n\nTo fix the code above you need to copy the value of i:\n\nvar nums = [];\n\nfor (var i = 0; i < 10; i++) {\n  (function (i) {\n    nums[i] = function (j) {\n        return i + j;\n    };\n  }(i));\n}",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "maxerr",
+    "desc": "This options allows you to set the maximum amount of warnings JSHint will produce\nbefore giving up. Default is 50.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "moz",
+    "desc": "This options tells JSHint that your code uses Mozilla JavaScript\nextensions. Unless you develop specifically for the Firefox web browser\nyou don't need this option.\n\nMore info:\n\nNew in JavaScript 1.7",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "multistr",
+    "desc": "This option suppresses warnings about multi-line strings. Multi-line strings\ncan be dangerous in JavaScript because all hell breaks loose if you accidentally\nput a whitespace in between the escape character (\\) and a new line.\n\nNote that even though this option allows correct multi-line strings, it still\nwarns about multi-line strings without escape characters or with anything in\nbetween the escape character and a whitespace.\n\n/*jshint multistr:true */\n\nvar text = \"Hello\\\nWorld\"; // All good.\n\ntext = \"Hello\nWorld\"; // Warning, no escape character.\n\ntext = \"Hello\\\nWorld\"; // Warning, there is a space after \\",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "notypeof",
+    "desc": "This option suppresses warnings about invalid typeof operator values.\nThis operator has only a limited set of possible return values.\nBy default, JSHint warns when you compare its result with an invalid\nvalue which often can be a typo.\n\n// 'fuction' instead of 'function'\nif (typeof a == \"fuction\") { // Invalid typeof value 'fuction'\n  /* ... */\n}\n\nDo not use this option unless you're absolutely sure you don't want these checks.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "proto",
+    "desc": "This option suppresses warnings about the __proto__ property.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "scripturl",
+    "desc": "This option suppresses warnings about the use of script-targeted URLs—such as\njavascript:....",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "shadow",
+    "desc": "This option suppresses warnings about variable shadowing i.e. declaring a\nvariable that had been already declared somewhere in the outer scope.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "sub",
+    "desc": "This option suppresses warnings about using [] notation when it can be\nexpressed in dot notation: person['name'] vs. person.name.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "supernew",
+    "desc": "This option suppresses warnings about \"weird\" constructions like\nnew function () { ... } and new Object;. Such constructions are sometimes\nused to produce singletons in JavaScript:\n\nvar singleton = new function() {\n  var privateVar;\n\n  this.publicMethod  = function () {}\n  this.publicMethod2 = function () {}\n};",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "validthis",
+    "desc": "This option suppresses warnings about possible strict violations when the code\nis running in strict mode and you use this in a non-constructor function. You\nshould use this option—in a function scope only—when you are positive that your\nuse of this is valid in the strict mode (for example, if you call your\nfunction using Function.call).\n\nNote: This option can be used only inside of a function scope. JSHint will fail\nwith an error if you will try to set this option globally.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "noyield",
+    "desc": "This option suppresses warnings about generator functions with no yield statement\nin them.",
+    "restrict": [],
+    "type": "relaxing",
+    "defaultValue": "false"
+  },
+  {
+    "name": "browser",
+    "desc": "This option defines globals exposed by modern browsers: all the way from good\nold document and navigator to the HTML5 FileReader and other new\ndevelopments in the browser world.\n\nNote: This option doesn't expose variables like alert or console. See\noption devel for more information.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "couch",
+    "desc": "This option defines globals exposed by CouchDB.\nCouchDB is a document-oriented database that can be queried and indexed in a\nMapReduce fashion using JavaScript.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "devel",
+    "desc": "This option defines globals that are usually used for logging poor-man's\ndebugging: console, alert, etc. It is usually a good idea to not ship them\nin production because, for example, console.log breaks in legacy versions of\nInternet Explorer.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "dojo",
+    "desc": "This option defines globals exposed by the Dojo Toolkit.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "jquery",
+    "desc": "This option defines globals exposed by the jQuery\nJavaScript library.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "mootools",
+    "desc": "This option defines globals exposed by the MooTools\nJavaScript framework.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "node",
+    "desc": "This option defines globals available when your code is running inside of the\nNode runtime environment. Node.js is a server-side\nJavaScript environment that uses an asynchronous event-driven model. This option\nalso skips some warnings that make sense in the browser environments but\ndon't make sense in Node such as file-level use strict pragmas and console.log\nstatements.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "nonstandard",
+    "desc": "This option defines non-standard but widely adopted globals such as escape and\nunescape.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "phantom",
+    "desc": "This option defines globals available when your core is running inside\nof the PhantomJS runtime environment. PhantomJS\nis a headless WebKit scriptable with a JavaScript API. It has fast and native support\nfor various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "prototypejs",
+    "desc": "This option defines globals exposed by the Prototype\nJavaScript framework.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "rhino",
+    "desc": "This option defines globals available when your code is running inside of the\nRhino runtime environment. Rhino is an\nopen-source implementation of JavaScript written entirely in Java.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "worker",
+    "desc": "This option defines globals available when your code is running inside of a Web\nWorker. Web Workers\nprovide a simple means for web content to run scripts in background threads.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "wsh",
+    "desc": "This option defines globals available when your code is running as a script for\nthe Windows Script Host.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  },
+  {
+    "name": "yui",
+    "desc": "This option defines globals exposed by the YUI\nJavaScript framework.",
+    "restrict": [],
+    "type": "environments",
+    "defaultValue": "false"
+  }
+]
