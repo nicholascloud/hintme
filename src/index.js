@@ -1,4 +1,5 @@
-#!/Users/nicholascloud/.nvm/v0.10.33/bin/node
+#!/usr/bin/env node
+//#!/Users/nicholascloud/.nvm/v0.10.33/bin/node
 'use strict';
 require('colors');
 var fs = require('fs');
