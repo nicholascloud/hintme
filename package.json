@@ -1,6 +1,6 @@
 {
   "name": "hintme",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "interactively generate a .jshintrc file",
   "main": "src/index.js",
   "bin": {

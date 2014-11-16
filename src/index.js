@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-//#!/Users/nicholascloud/.nvm/v0.10.33/bin/node
 'use strict';
 require('colors');
 var fs = require('fs');
@@ -18,7 +17,8 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-var OUTPUT_FILE = path.relative(__dirname, args[0]);
+var OUTPUT_FILE = path.resolve(path.normalize(args[0]));
+console.log('writing to file:', OUTPUT_FILE);
 var LIVE_OPTS = util.contains(args, '--live');
 
 Q().then(function () {
